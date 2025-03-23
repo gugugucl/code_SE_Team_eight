@@ -562,7 +562,14 @@ debug/mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		../../../../../../Qt/6.2.3/mingw_64/include/QtSql/qtsqlglobal.h \
 		../../../../../../Qt/6.2.3/mingw_64/include/QtSql/qtsql-config.h \
 		../../../../../../Qt/6.2.3/mingw_64/include/QtCore/QDebug \
-		ui_mainwindow.h
+		ui_mainwindow.h \
+		../../../../../../Qt/6.2.3/mingw_64/include/QtWidgets/QMessageBox \
+		../../../../../../Qt/6.2.3/mingw_64/include/QtWidgets/qmessagebox.h \
+		../../../../../../Qt/6.2.3/mingw_64/include/QtWidgets/qdialog.h \
+		../../../../../../Qt/6.2.3/mingw_64/include/QtSql/QSqlError \
+		../../../../../../Qt/6.2.3/mingw_64/include/QtSql/qsqlerror.h \
+		../../../../../../Qt/6.2.3/mingw_64/include/QtSql/QSqlQuery \
+		../../../../../../Qt/6.2.3/mingw_64/include/QtSql/qsqlquery.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\mainwindow.o ..\..\mainwindow.cpp
 
 debug/moc_mainwindow.o: debug/moc_mainwindow.cpp 

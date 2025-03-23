@@ -18,42 +18,66 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-
 void MainWindow::test()
 {
-    QSqlDatabase db;
-    if (QSqlDatabase::contains("str1")) {
-        db = QSqlDatabase::database("str1");
-    } else {
-        db = QSqlDatabase::addDatabase("QODBC", "str1");
-    }
+    qDebug() << "Available drivers:" << QSqlDatabase::drivers();
 
-    db.setHostName("127.0.0.1");  // 确保替换为正确的数据库 IP 地址
-    db.setPort(3306);  // MySQL 默认端口
-    db.setDatabaseName("Mysql");  // 替换为实际的数据库名
-    db.setUserName("wj");  // 替换为实际的用户名
-    db.setPassword("O2l93IwJ");  // 替换为实际的密码
+    QSqlDatabase db = QSqlDatabase::addDatabase("QODBC"); // 推荐使用 MySQL 驱动
+    db.setHostName("49.235.140.182");
+    db.setPort(3306);
+    db.setDatabaseName("myproject");
+    db.setUserName("root");
+    db.setPassword("Chenliang2005");
 
     if (!db.open()) {
-        qDebug() << "数据库连接失败：" << db.lastError().text();  // 打印错误信息
+        QMessageBox::information(this, "infor", "link failed");
+        qDebug() << "error open database because" << db.lastError().text();
         return;
     }
+
+    QMessageBox::information(this, "infor", "link success");
+   // qDebug() << "数据库连接成功！";
 
     QSqlQuery query(db);
 
-    QString sql_1 = "select * from 用户表";  // 替换为实际的表名
-    if (!query.exec(sql_1)) {
-        qDebug() << "查询执行失败：" << query.lastError().text();  // 打印查询执行错误
-        db.close();
-        return;
+    // 插入数据
+    QString insertSql = "INSERT INTO user (id, name,telephone,password ) VALUES (1002, 'Alice','0593021931','123456')";
+    if (!query.exec(insertSql)) {
+        qDebug() << "插入失败：" << query.lastError().text();
+    } else {
+        qDebug() << "插入成功";
     }
 
-    while (query.next()) {
-        qDebug() << query.value(0).toString();
-        qDebug() << query.value(1).toString();
-        qDebug() << query.value(2).toString();
+    // 查询数据
+    QString selectSql = "SELECT id, name FROM user";
+    if (!query.exec(selectSql)) {
+        qDebug() << "查询失败：" << query.lastError().text();
+    } else {
+        qDebug() << "查询结果：";
+        while (query.next()) {
+            int id = query.value("id").toInt();
+            QString name = query.value("name").toString();
+            qDebug() << "ID:" << id << ", Name:" << name;
+        }
     }
+
+    // 更新数据
+    QString updateSql = "UPDATE user SET name = 'Bob' WHERE id = 1002";
+    if (!query.exec(updateSql)) {
+        qDebug() << "更新失败：" << query.lastError().text();
+    } else {
+        qDebug() << "更新成功";
+    }
+
+    // 删除数据
+ //  QString deleteSql = "DELETE FROM user WHERE id = 1002";
+ //   if (!query.exec(deleteSql)) {
+  //      qDebug() << "删除失败：" << query.lastError().text();
+ //   } else {
+  //      qDebug() << "删除成功";
+  //  }
 
     db.close();
-    QSqlDatabase::removeDatabase("str1");
 }
+
+
