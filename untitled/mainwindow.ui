@@ -17,14 +17,14 @@
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>70</y>
+      <x>90</x>
+      <y>120</y>
       <width>341</width>
       <height>241</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="page_1">
      <property name="minimumSize">
@@ -98,8 +98,8 @@
      <widget class="QLineEdit" name="registerUsername">
       <property name="geometry">
        <rect>
-        <x>40</x>
-        <y>40</y>
+        <x>60</x>
+        <y>50</y>
         <width>113</width>
         <height>20</height>
        </rect>
@@ -108,7 +108,7 @@
      <widget class="QLineEdit" name="confirmPassword">
       <property name="geometry">
        <rect>
-        <x>50</x>
+        <x>60</x>
         <y>90</y>
         <width>113</width>
         <height>20</height>
@@ -147,7 +147,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>17</height>
     </rect>
    </property>
   </widget>

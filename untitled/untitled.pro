@@ -16,6 +16,8 @@ HEADERS += \
     mainwindow.h
 
 FORMS += \
+    ../../../Desktop/CPP-Qt-Login-Register-Interface-Template-main/WelcomePage/registerpage.ui \
+    ../../../Desktop/CPP-Qt-Login-Register-Interface-Template-main/WelcomePage/welcomepage.ui \
     mainwindow.ui
 
 # Default rules for deployment.
