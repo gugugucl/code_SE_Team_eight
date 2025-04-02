@@ -1,6 +1,7 @@
 #include "widget.h"
 #include "STDateWidget.h"
 #include "STCalandarWidget.h"
+#include "ClockWidget.h"
 #include <QTextCodec>
 
 #include <QApplication>
@@ -11,6 +12,6 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     Widget w;
 
-    //w.show();
+    w.show();
     return a.exec();
 }

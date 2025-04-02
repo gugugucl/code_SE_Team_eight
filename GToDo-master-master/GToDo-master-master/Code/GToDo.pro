@@ -34,7 +34,8 @@ FORMS += \
     GBtnRroup.ui \
     GNotifyMessage.ui \
     GToDo.ui \
-    GToDoItem.ui
+    GToDoItem.ui \
+    page_setting.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

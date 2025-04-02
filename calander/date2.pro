@@ -16,14 +16,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    ClockWidget.cpp \
     STCalandarWidget.cpp \
     STDateWidget.cpp \
     main.cpp \
+    task.cpp \
+    user.cpp \
     widget.cpp
 
 HEADERS += \
+    ClockWidget.h \
     STCalandarWidget.h \
     STDateWidget.h \
+    task.h \
+    user.h \
     widget.h
 
 FORMS += \
