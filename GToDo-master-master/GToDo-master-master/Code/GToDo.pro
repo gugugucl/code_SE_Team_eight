@@ -20,7 +20,9 @@ SOURCES += \
     GToDo.cpp \
     GToDoItem.cpp \
     Main.cpp \
-    page_setting.cpp
+    PageSetting.cpp \
+    page_mini.cpp \
+    widget.cpp
 
 HEADERS += \
     GBtnRroup.h \
@@ -28,14 +30,18 @@ HEADERS += \
     GQstringDate.h \
     GToDo.h \
     GToDoItem.h \
-    page_setting.h
+    PageSetting.h \
+    page_mini.h \
+    widget.h
 
 FORMS += \
     GBtnRroup.ui \
     GNotifyMessage.ui \
     GToDo.ui \
     GToDoItem.ui \
-    page_setting.ui
+    PageSetting.ui \
+    page_mini.ui \
+    widget.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

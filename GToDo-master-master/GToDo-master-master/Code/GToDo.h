@@ -57,7 +57,8 @@ public:
     void loadGroup();
     void on_btnShowFinished_clicked();
 private slots:
-    void on_btnRefresh_clicked();
+    void myclock();
+
     void openSettingPanel(QString Title, QString Deadline);
     void groupSwitch(QString group);
     void on_editTitle_editingFinished();

@@ -135,6 +135,11 @@
              <string>按优先级排序</string>
             </property>
            </item>
+           <item>
+            <property name="text">
+             <string>新建项目</string>
+            </property>
+           </item>
           </widget>
          </item>
          <item>
@@ -153,28 +158,6 @@
            </property>
            <property name="placeholderText">
             <string>添加新待办，在输入框输入待办标题回车键确认即可添加。</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="btnRefresh">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>32</height>
-            </size>
-           </property>
-           <property name="statusTip">
-            <string>刷新待办区列表</string>
-           </property>
-           <property name="text">
-            <string>刷新</string>
            </property>
           </widget>
          </item>
@@ -1726,8 +1709,8 @@ p, li { white-space: pre-wrap; }
       <string/>
      </property>
      <property name="icon">
-      <iconset resource="image.qrc">
-       <normaloff>:/image/avatar.png</normaloff>:/image/avatar.png</iconset>
+      <iconset>
+       <normaloff>image/logo_d.png</normaloff>image/logo_d.png</iconset>
      </property>
      <property name="iconSize">
       <size>

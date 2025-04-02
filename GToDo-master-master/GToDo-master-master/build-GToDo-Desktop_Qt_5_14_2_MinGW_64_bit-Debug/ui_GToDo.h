@@ -65,7 +65,6 @@ public:
     QHBoxLayout *horizontalLayout_8;
     QComboBox *boxOrder;
     QLineEdit *editAddItem;
-    QPushButton *btnRefresh;
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents_4;
     QWidget *panelListPage_1;
@@ -254,6 +253,7 @@ public:
         boxOrder = new QComboBox(panelListPage);
         boxOrder->addItem(QString());
         boxOrder->addItem(QString());
+        boxOrder->addItem(QString());
         boxOrder->setObjectName(QString::fromUtf8("boxOrder"));
         QSizePolicy sizePolicy1(QSizePolicy::Preferred, QSizePolicy::Fixed);
         sizePolicy1.setHorizontalStretch(0);
@@ -269,17 +269,6 @@ public:
         editAddItem->setMinimumSize(QSize(0, 32));
 
         horizontalLayout_8->addWidget(editAddItem);
-
-        btnRefresh = new QPushButton(panelListPage);
-        btnRefresh->setObjectName(QString::fromUtf8("btnRefresh"));
-        QSizePolicy sizePolicy2(QSizePolicy::Minimum, QSizePolicy::Fixed);
-        sizePolicy2.setHorizontalStretch(0);
-        sizePolicy2.setVerticalStretch(0);
-        sizePolicy2.setHeightForWidth(btnRefresh->sizePolicy().hasHeightForWidth());
-        btnRefresh->setSizePolicy(sizePolicy2);
-        btnRefresh->setMinimumSize(QSize(0, 32));
-
-        horizontalLayout_8->addWidget(btnRefresh);
 
 
         verticalLayout_11->addLayout(horizontalLayout_8);
@@ -303,11 +292,11 @@ public:
         panelSet = new QWidget(panelListPage_1);
         panelSet->setObjectName(QString::fromUtf8("panelSet"));
         panelSet->setGeometry(QRect(0, 10, 921, 721));
-        QSizePolicy sizePolicy3(QSizePolicy::Expanding, QSizePolicy::Expanding);
-        sizePolicy3.setHorizontalStretch(3);
-        sizePolicy3.setVerticalStretch(0);
-        sizePolicy3.setHeightForWidth(panelSet->sizePolicy().hasHeightForWidth());
-        panelSet->setSizePolicy(sizePolicy3);
+        QSizePolicy sizePolicy2(QSizePolicy::Expanding, QSizePolicy::Expanding);
+        sizePolicy2.setHorizontalStretch(3);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(panelSet->sizePolicy().hasHeightForWidth());
+        panelSet->setSizePolicy(sizePolicy2);
         verticalLayout_10 = new QVBoxLayout(panelSet);
         verticalLayout_10->setSpacing(5);
         verticalLayout_10->setObjectName(QString::fromUtf8("verticalLayout_10"));
@@ -578,11 +567,11 @@ public:
         horizontalLayout_16->setObjectName(QString::fromUtf8("horizontalLayout_16"));
         editMsg = new QTextBrowser(panelSet);
         editMsg->setObjectName(QString::fromUtf8("editMsg"));
-        QSizePolicy sizePolicy4(QSizePolicy::Minimum, QSizePolicy::Preferred);
-        sizePolicy4.setHorizontalStretch(0);
-        sizePolicy4.setVerticalStretch(0);
-        sizePolicy4.setHeightForWidth(editMsg->sizePolicy().hasHeightForWidth());
-        editMsg->setSizePolicy(sizePolicy4);
+        QSizePolicy sizePolicy3(QSizePolicy::Minimum, QSizePolicy::Preferred);
+        sizePolicy3.setHorizontalStretch(0);
+        sizePolicy3.setVerticalStretch(0);
+        sizePolicy3.setHeightForWidth(editMsg->sizePolicy().hasHeightForWidth());
+        editMsg->setSizePolicy(sizePolicy3);
         editMsg->setMinimumSize(QSize(0, 300));
         editMsg->setMaximumSize(QSize(16777215, 16777215));
         editMsg->viewport()->setProperty("cursor", QVariant(QCursor(Qt::IBeamCursor)));
@@ -600,8 +589,8 @@ public:
         horizontalLayout_17->setObjectName(QString::fromUtf8("horizontalLayout_17"));
         editDetail = new QTextEdit(panelSet);
         editDetail->setObjectName(QString::fromUtf8("editDetail"));
-        sizePolicy4.setHeightForWidth(editDetail->sizePolicy().hasHeightForWidth());
-        editDetail->setSizePolicy(sizePolicy4);
+        sizePolicy3.setHeightForWidth(editDetail->sizePolicy().hasHeightForWidth());
+        editDetail->setSizePolicy(sizePolicy3);
         editDetail->setMaximumSize(QSize(16777215, 100));
         editDetail->setFrameShape(QFrame::Panel);
         editDetail->setFrameShadow(QFrame::Plain);
@@ -870,7 +859,7 @@ public:
         pushButton_login_img->setMaximumSize(QSize(80, 80));
         pushButton_login_img->setCursor(QCursor(Qt::PointingHandCursor));
         QIcon icon28;
-        icon28.addFile(QString::fromUtf8(":/image/avatar.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon28.addFile(QString::fromUtf8("image/logo_d.png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton_login_img->setIcon(icon28);
         pushButton_login_img->setIconSize(QSize(70, 70));
         pushButton_login_img->setFlat(true);
@@ -880,11 +869,11 @@ public:
         panelGroup = new QWidget(widget_Group);
         panelGroup->setObjectName(QString::fromUtf8("panelGroup"));
         panelGroup->setGeometry(QRect(0, 0, 200, 686));
-        QSizePolicy sizePolicy5(QSizePolicy::Expanding, QSizePolicy::Expanding);
-        sizePolicy5.setHorizontalStretch(0);
-        sizePolicy5.setVerticalStretch(0);
-        sizePolicy5.setHeightForWidth(panelGroup->sizePolicy().hasHeightForWidth());
-        panelGroup->setSizePolicy(sizePolicy5);
+        QSizePolicy sizePolicy4(QSizePolicy::Expanding, QSizePolicy::Expanding);
+        sizePolicy4.setHorizontalStretch(0);
+        sizePolicy4.setVerticalStretch(0);
+        sizePolicy4.setHeightForWidth(panelGroup->sizePolicy().hasHeightForWidth());
+        panelGroup->setSizePolicy(sizePolicy4);
         panelGroup->setMinimumSize(QSize(200, 0));
         verticalLayout_7 = new QVBoxLayout(panelGroup);
         verticalLayout_7->setSpacing(0);
@@ -928,11 +917,11 @@ public:
         horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
         btnMyTask = new QPushButton(widgetGroup);
         btnMyTask->setObjectName(QString::fromUtf8("btnMyTask"));
-        QSizePolicy sizePolicy6(QSizePolicy::Minimum, QSizePolicy::Minimum);
-        sizePolicy6.setHorizontalStretch(0);
-        sizePolicy6.setVerticalStretch(0);
-        sizePolicy6.setHeightForWidth(btnMyTask->sizePolicy().hasHeightForWidth());
-        btnMyTask->setSizePolicy(sizePolicy6);
+        QSizePolicy sizePolicy5(QSizePolicy::Minimum, QSizePolicy::Minimum);
+        sizePolicy5.setHorizontalStretch(0);
+        sizePolicy5.setVerticalStretch(0);
+        sizePolicy5.setHeightForWidth(btnMyTask->sizePolicy().hasHeightForWidth());
+        btnMyTask->setSizePolicy(sizePolicy5);
         btnMyTask->setMinimumSize(QSize(0, 32));
 
         horizontalLayout_3->addWidget(btnMyTask);
@@ -997,6 +986,7 @@ public:
         action_16->setText(QCoreApplication::translate("GToDo", "\345\234\250\347\272\277\345\215\207\347\272\247", nullptr));
         boxOrder->setItemText(0, QCoreApplication::translate("GToDo", "\346\214\211\345\210\260\346\234\237\346\227\266\351\227\264\346\216\222\345\272\217", nullptr));
         boxOrder->setItemText(1, QCoreApplication::translate("GToDo", "\346\214\211\344\274\230\345\205\210\347\272\247\346\216\222\345\272\217", nullptr));
+        boxOrder->setItemText(2, QCoreApplication::translate("GToDo", "\346\226\260\345\273\272\351\241\271\347\233\256", nullptr));
 
 #if QT_CONFIG(statustip)
         boxOrder->setStatusTip(QCoreApplication::translate("GToDo", "\351\200\211\346\213\251\345\276\205\345\212\236\345\210\227\350\241\250\346\216\222\345\272\217\346\226\271\345\274\217\343\200\202", nullptr));
@@ -1006,10 +996,6 @@ public:
 #endif // QT_CONFIG(statustip)
         editAddItem->setText(QString());
         editAddItem->setPlaceholderText(QCoreApplication::translate("GToDo", "\346\267\273\345\212\240\346\226\260\345\276\205\345\212\236\357\274\214\345\234\250\350\276\223\345\205\245\346\241\206\350\276\223\345\205\245\345\276\205\345\212\236\346\240\207\351\242\230\345\233\236\350\275\246\351\224\256\347\241\256\350\256\244\345\215\263\345\217\257\346\267\273\345\212\240\343\200\202", nullptr));
-#if QT_CONFIG(statustip)
-        btnRefresh->setStatusTip(QCoreApplication::translate("GToDo", "\345\210\267\346\226\260\345\276\205\345\212\236\345\214\272\345\210\227\350\241\250", nullptr));
-#endif // QT_CONFIG(statustip)
-        btnRefresh->setText(QCoreApplication::translate("GToDo", "\345\210\267\346\226\260", nullptr));
 #if QT_CONFIG(statustip)
         scrollArea->setStatusTip(QString());
 #endif // QT_CONFIG(statustip)

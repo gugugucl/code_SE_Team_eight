@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/new/prefix1"/>
     <qresource prefix="/">
-        <file>image/attention.png</file>
         <file>qss/default.css</file>
         <file>qss/light.css</file>
         <file>image/del.png</file>
@@ -34,7 +33,6 @@
         <file>image/textcolor.png</file>
         <file>image/min.png</file>
         <file>image/lan.png</file>
-        <file>image/default_avatar.png</file>
         <file>image/folder.png</file>
         <file>image/Finished.png</file>
         <file>image/export .png</file>
@@ -44,7 +42,6 @@
         <file>image/about.png</file>
         <file>image/course.png</file>
         <file>language/lan_tw.ts</file>
-        <file>image/logo.png</file>
         <file>image/up.png</file>
         <file>qssimg/add_bottom.png</file>
         <file>qssimg/add_left.png</file>
@@ -76,17 +73,33 @@
         <file>image/nav.png</file>
         <file>image/img.png</file>
         <file>image/clear.png</file>
-        <file>image/attention_a.png</file>
-        <file>image/attention_b.png</file>
-        <file>image/attention_c.png</file>
         <file>image/a.png</file>
         <file>image/empty.png</file>
-        <file>image/logo_d.png</file>
         <file>bg/a.png</file>
         <file>bg/b.png</file>
         <file>bg/c.png</file>
         <file>bg/wbg.png</file>
         <file>tips.wav</file>
         <file>font/Aa.ttf</file>
+        <file>img/close.png</file>
+        <file>img/close_hover.png</file>
+        <file>img/close_press.png</file>
+        <file>img/max.png</file>
+        <file>img/max_hover.png</file>
+        <file>img/max_press.png</file>
+        <file>img/rest.png</file>
+        <file>img/rest_hover.png</file>
+        <file>img/rest_press.png</file>
+        <file>img/work.png</file>
+        <file>img/work_hover.png</file>
+        <file>img/work_press.png</file>
+        <file>logo.ico</file>
+        <file>image/logo.png</file>
+        <file>image/attention_c.png</file>
+        <file>image/attention_a.png</file>
+        <file>image/attention_b.png</file>
+        <file>image/attention.png</file>
+        <file>image/logo_d.png</file>
+        <file>image/default_avatar.png</file>
     </qresource>
 </RCC>

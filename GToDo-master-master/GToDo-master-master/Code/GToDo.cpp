@@ -19,6 +19,7 @@
 #include <QTextBlock>
 #include <QTextBlockFormat>
 #include <QProcess>
+#include "widget.h"
 
 #define SHADOW_WIDTH 10
 
@@ -37,7 +38,7 @@ GToDo::GToDo(QWidget *parent) :
     ui->scrollArea->setFrameShape(QFrame::NoFrame);
     this->setWindowTitle(tr(" GTOD待办专家"));
     db = QSqlDatabase::addDatabase("QSQLITE");//打开数据库
-    db.setDatabaseName("D:\\code\\code_SE_Team_eight\\GToDo-master-master\\GToDo-master-master\\Exec for windows\\todo.db");
+    db.setDatabaseName("../Exec for windows/todo.db");
 
     bool isOpen = db.open();
     qDebug() << isOpen << endl;
@@ -52,6 +53,7 @@ GToDo::GToDo(QWidget *parent) :
     ui->avatarLabel->hide();
     ui->panelList->setCurrentIndex(0);
     ui->lbGroup->setText(tr("全部待办"));
+    ui->boxOrder->setCurrentIndex(0);
     update();
     ui->pushButton_login->setVisible(true);
     ui->pushButton_login_img->setVisible(false);
@@ -122,6 +124,8 @@ GToDo::GToDo(QWidget *parent) :
 
                 ui->panelList->setCurrentIndex(0);
                 ui->lbGroup->setText(tr("全部待办"));
+
+                ui->boxOrder->setCurrentIndex(0);
                 update();
             }
 
@@ -214,17 +218,58 @@ void GToDo::update()//刷新键
             query.exec(QString("select * from todolist where Finished = 0 and gpName = '%1' order by Deadline,Priority desc;").arg(ui->lbGroup->text()));
         }
     }
-    else
-    {
-        if(ui->lbGroup->text() == tr("全部待办"))
+    else if(ui->boxOrder->currentIndex() == 1 )
         {
-            query.exec("select * from todolist where Finished = 0 order by Priority desc,Deadline;");
+            if(ui->lbGroup->text() == tr("全部待办"))
+            {
+                query.exec("select * from todolist where Finished = 0 order by Priority desc,Deadline;");
+            }
+            else
+            {
+                query.exec(QString("select * from todolist where Finished = 0 and gpName = '%1' order by Priority desc,Deadline;").arg(ui->lbGroup->text()));
+            }
         }
-        else
+        else if(ui->boxOrder->currentIndex() == 2 )
         {
-            query.exec(QString("select * from todolist where Finished = 0 and gpName = '%1' order by Priority desc,Deadline;").arg(ui->lbGroup->text()));
+            // 创建日历对话框
+            QDialog calendarDialog(this);
+            calendarDialog.setWindowTitle("选择日期");
+            QVBoxLayout *layout = new QVBoxLayout(&calendarDialog);
+
+            // 创建 QCalendarWidget
+            QCalendarWidget *calendar = new QCalendarWidget(&calendarDialog);
+            layout->addWidget(calendar);
+
+            // 创建确认按钮
+            QPushButton *btnConfirm = new QPushButton("确认", &calendarDialog);
+            layout->addWidget(btnConfirm);
+
+            // 连接按钮点击事件，关闭对话框
+            connect(btnConfirm, &QPushButton::clicked, &calendarDialog, &QDialog::accept);
+
+            // **阻塞等待用户选择日期**
+            if(calendarDialog.exec() == QDialog::Accepted)
+            {
+                QDate selectedDate = calendar->selectedDate();
+                QString selectedDateStr = selectedDate.toString("yyyy-MM-dd");
+
+                // **查询数据库**
+           //     QSqlQuery query;
+                if(ui->lbGroup->text() == tr("全部待办"))
+                {
+                    query.exec(QString("SELECT * FROM todolist WHERE Finished = 0 AND Deadline = '%1' ORDER BY Priority DESC;").arg(selectedDateStr));
+                }
+                else
+                {
+                    query.exec(QString("SELECT * FROM todolist WHERE Finished = 0 AND gpName = '%1' AND Deadline = '%2' ORDER BY Priority DESC;")
+                               .arg(ui->lbGroup->text())
+                               .arg(selectedDateStr));
+                }
+
+                qDebug() << "用户选择的日期：" << selectedDateStr;
+            }
+
         }
-    }
     while(query.next())
     {
         GToDoitem * newItem = new GToDoitem();
@@ -275,6 +320,7 @@ void GToDo::update()//刷新键
     todoLayout->addStretch();
     ui->scrollArea->setWidget(widget);
     connect(GQStringToQDate::btnShowFinished, &QPushButton::clicked, this, &GToDo::on_btnShowFinished_clicked);
+  //  ui->boxOrder->setCurrentIndex(0);
 }
 
 void GToDo::on_btnShowFinished_clicked()//点击显式已完成任务
@@ -315,6 +361,7 @@ void GToDo::on_btnShowFinished_clicked()//点击显式已完成任务
     }
     else
     {
+        ui->boxOrder->setCurrentIndex(0);
         update();//处于展示状态，调用update去再次隐藏起来
     }
 }
@@ -339,10 +386,7 @@ void GToDo::loadGroup()//加载分类组
     }
 }
 
-void GToDo::on_btnRefresh_clicked()//点击刷新键
-{
-    update();
-}
+
 
 void GToDo::openSettingPanel(QString Title, QString Deadline)//从数据库里面导入数据或者编辑任务
 {
@@ -426,6 +470,7 @@ void GToDo::openSettingPanel(QString Title, QString Deadline)//从数据库里�
 void GToDo::groupSwitch(QString group)
 {
     ui->lbGroup->setText(group);
+    ui->boxOrder->setCurrentIndex(0);
     update();
     ui->panelList->setCurrentIndex(0);
 }
@@ -438,6 +483,7 @@ void GToDo::on_editTitle_editingFinished()
     {
         if(query.exec(QString("update todolist set Title = '%1' where Title = '%2' and Deadline is null;").arg(ui->editTitle->toPlainText()).arg(GQStringToQDate::s_currentTitle)))
         {
+            ui->boxOrder->setCurrentIndex(0);
             update();
             GQStringToQDate::s_currentTitle = ui->editTitle->toPlainText();
         }
@@ -450,6 +496,7 @@ void GToDo::on_editTitle_editingFinished()
     {
         if(query.exec(QString("update todolist set Title = '%1' where Title = '%2' and Deadline = '%3';").arg(ui->editTitle->toPlainText()).arg(GQStringToQDate::s_currentTitle).arg(GQStringToQDate::s_currentDdl)))
         {
+            ui->boxOrder->setCurrentIndex(0);
             update();
             GQStringToQDate::s_currentTitle = ui->editTitle->toPlainText();
         }
@@ -493,6 +540,7 @@ void GToDo::on_btnDetail_clicked() //修改细节
     if (query.exec()) {
         GQStringToQDate::s_currentTitle = newTitle;
         ui->panelList->setCurrentIndex(0);
+        ui->boxOrder->setCurrentIndex(0);
         update();
     } else {
         QMessageBox::information(this, tr("修改提示"), tr("修改失败"));
@@ -524,6 +572,7 @@ void GToDo::on_boxPriority_currentIndexChanged(int index)//修改优先级
         }
     }
 
+    ui->boxOrder->setCurrentIndex(0);
     update();
 }
 
@@ -553,6 +602,7 @@ void GToDo::on_boxRepeat_currentIndexChanged(int index)//修改重复次数
         }
     }
 
+    ui->boxOrder->setCurrentIndex(0);
     update();
 }
 
@@ -580,6 +630,7 @@ void GToDo::on_Crontab_currentIndexChanged(int index){//修改任务类型
         }
     }
 
+    ui->boxOrder->setCurrentIndex(0);
     update();
 }
 
@@ -619,6 +670,7 @@ void GToDo::on_btnSetDdl_clicked()//确定截止日期
             if(query.exec(QString("update todolist set Deadline = '%1' where Title = '%2'  and Deadline is null;").arg(ui->editDdl->date().toString("yyyy-MM-dd")).arg(GQStringToQDate::s_currentTitle)))
             {
                 GQStringToQDate::s_currentDdl = ui->editDdl->date().toString("yyyy-MM-dd");
+                ui->boxOrder->setCurrentIndex(0);
                 update();
                 ui->btnSetDdl->setText(GQStringToQDate::QStringFromat(ui->editDdl->date().toString("yyyy-MM-dd")));
                 ui->editDdl->hide();
@@ -633,6 +685,7 @@ void GToDo::on_btnSetDdl_clicked()//确定截止日期
             if(query.exec(QString("update todolist set Deadline = '%1' where Title = '%2'  and Deadline = '%3';").arg(ui->editDdl->date().toString("yyyy-MM-dd")).arg(GQStringToQDate::s_currentTitle).arg(GQStringToQDate::s_currentDdl)))
             {
                 GQStringToQDate::s_currentDdl = ui->editDdl->date().toString("yyyy-MM-dd");
+                ui->boxOrder->setCurrentIndex(0);
                 update();
                 ui->btnSetDdl->setText(GQStringToQDate::QStringFromat(ui->editDdl->date().toString("yyyy-MM-dd")));
                 ui->editDdl->hide();
@@ -681,6 +734,7 @@ void GToDo::on_btnSetRemind_clicked()//确定截止时间
         {
             if(query.exec(QString("update todolist set Remind = '%1' where Title = '%2' and Deadline is null;").arg(ui->editRemind->dateTime().toString("yyyy-MM-dd hh:mm")).arg(GQStringToQDate::s_currentTitle)))
             {
+                ui->boxOrder->setCurrentIndex(0);
                 update();
                 ui->btnSetRemind->setText(ui->editRemind->dateTime().toString("MM-dd hh:mm"));
                 ui->editRemind->hide();
@@ -694,6 +748,7 @@ void GToDo::on_btnSetRemind_clicked()//确定截止时间
         {
             if(query.exec(QString("update todolist set Remind = '%1' where Title = '%2' and Deadline = '%3';").arg(ui->editRemind->dateTime().toString("yyyy-MM-dd hh:mm")).arg(GQStringToQDate::s_currentTitle).arg(GQStringToQDate::s_currentDdl)))
             {
+                ui->boxOrder->setCurrentIndex(0);
                 update();
                 ui->btnSetRemind->setText(ui->editRemind->dateTime().toString("MM-dd- hh:mm"));
                 ui->editRemind->hide();
@@ -764,7 +819,9 @@ void GToDo::on_editAddItem_editingFinished()//添加新事项
         QMessageBox::information(this,tr("新建提示"),tr("新建失败，已有同名且截至日期相同的事件"));
     }
     ui->editAddItem->clear();
+    ui->boxOrder->setCurrentIndex(0);
     update();
+
 }
 
 
@@ -968,6 +1025,12 @@ void GToDo::on_pushButton_min_clicked()//最小化
     trayIcon->show();//放在了windows系统托盘区域
 }
 
+void GToDo::myclock()
+{
+    Widget *clock = new Widget();
+    clock->show();
+}
+
 void GToDo::on_pushButton_menu_clicked()//附加功能区
 {
     QMenu *menu = new QMenu(this);
@@ -979,6 +1042,9 @@ void GToDo::on_pushButton_menu_clicked()//附加功能区
         ui->lbGroup->setText(tr("系统配置"));
     });
 
+    QAction *action2 = new QAction(tr("倒计时"),this);
+    menu->addAction(action2);
+    connect(action2,&QAction::triggered,this,&GToDo::myclock);
 
     QPoint pos = ui->pushButton_menu->mapToGlobal(QPoint(0, ui->pushButton_menu->height()));
     QRect screenGeometry = QApplication::desktop()->screenGeometry(this);

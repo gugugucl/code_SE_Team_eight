@@ -1,0 +1,422 @@
+*{outline:2px;color:#161b25;}
+QPalette{background:#f1f1f1;}
+#Frame_bg{background:#f1f1f1;border: 1px solid #ffffff;}
+#frame_head{background:#ffffff;border:none;border-bottom: 1px solid #eeeeee;}
+/*left*/
+#widget_left{background-color: #1b1c24;}
+#pushButton_login_img,#pushButton_login{padding:10px;background: #ffffff;border:0px solid #0ea80e;border-radius: 40px; }
+#pushButton_login_img:hover,#pushButton_login:hover{border:0px solid #0ea80e;}
+#label_userName{color:#818a96;font-weight:bold;}
+#panelList,#panelListPage,#panelGroup,#scrollAreaGroup,#scrollAreaWidgetContents_3,#scrollAreaWidgetContents_4,#layoutGroup,#widgetGroup,#scrollArea,#panelListPage,#centralwidget,.scrollArea{background: transparent;background-color: transparent;selection-background-color:transparent;border:none;}
+#editAddGroup{border:1px solid #272c3e;border-radius:0;background:transparent;padding:2px 10px;color:#818a96;}
+#editAddGroup:focus,#editAddGroup:hover{border:1px solid #ff3300;}
+#pushButton,#btnDelete,#btnMyTask,#pushButton_back{border-radius:0;background:rgba(255,255,255,0);border:none;border-bottom:1px solid #272c3e;Color:#818a96;text-align:left;}
+#pushButton:hover,#btnDelete:hover,#btnMyTask:hover,#pushButton_back:hover{Color:#cccccc;border-bottom:1px solid #272c3e;}
+#pushButton:pressed,#btnDelete:pressed,#btnMyTask:pressed,#pushButton_back:pressed{border-bottom:1px solid #ff3300;Color:#ffffff;}
+#btnFinish,#btnAlter,#pushButton_del,#pushButton_export,#pushButton_download{
+outline-style:none;
+outline:none;
+border-radius:5px;
+padding:5px;
+background:rgba(255,255,255,0)
+}
+#Start_logo{background: #ffffff;border:0px solid #0ea80e;border-radius: 30px;}
+#sexuality{background: rgba(255, 255, 255, 0);border-radius: 12px;}
+#avatarLabel{background:rgba(255,255,255,0.5);}
+#pushButton_1,#pushButton_2,#pushButton_3{border-radius:8px;background: #cccccc;
+}
+#INkown,#INkown_close{border-radius:20px;border:0px solid #0ea80e;}
+#Close_pushButton_2{border-radius: 0;border:0px solid #0ea80e;background-color: #eeeeee;}
+#CloseOK{background:#f1f1f1;}
+#CloseOK:hover{background:#0ea80e;color:#ffffff;}
+QRadioButton::indicator{
+width:24px;
+height:24px;
+}
+
+QRadioButton::indicator::unchecked{
+image:url(:/qssimg/radiobutton_unchecked.png);
+}
+
+QRadioButton::indicator::unchecked:disabled{
+image:url(:/qssimg/radiobutton_unchecked_disable.png);
+}
+
+QRadioButton::indicator::checked{
+image:url(:/qssimg/radiobutton_checked.png);
+}
+
+QRadioButton::indicator::checked:disabled{
+image:url(:/qssimg/radiobutton_checked_disable.png);
+}
+QDateEdit{
+background: #ffffff;border:none;
+padding:0 5px;
+}
+QTimeEdit::up-button,QDateEdit::up-button,QDateTimeEdit::up-button,QDoubleSpinBox::up-button,QSpinBox::up-button{
+image:url(:/image/up.png);
+width:10px;
+height:10px;
+padding:2px 5px 0px 0px;
+
+}
+
+QTimeEdit::down-button,QDateEdit::down-button,QDateTimeEdit::down-button,QDoubleSpinBox::down-button,QSpinBox::down-button{
+image:url(:/image/down.png);
+width:10px;
+height:10px;
+padding:0px 5px 2px 0px;
+
+}
+
+QTimeEdit::up-button:pressed,QDateEdit::up-button:pressed,QDateTimeEdit::up-button:pressed,QDoubleSpinBox::up-button:pressed,QSpinBox::up-button:pressed{
+top:-2px;
+}
+
+QTimeEdit::down-button:pressed,QDateEdit::down-button:pressed,QDateTimeEdit::down-button:pressed,QDoubleSpinBox::down-button:pressed,QSpinBox::down-button:pressed,QSpinBox::down-button:pressed{
+bottom:-2px;
+}
+#btnFinish:hover,#btnAlter:hover,#pushButton_del:hover,#pushButton_export:hover,#pushButton_download:hover{
+background:rgba(0,0,0,0.1);
+padding:5px;
+}
+#btnFinish:pressed,#btnAlter:pressed,#pushButton_del:pressed,#pushButton_export:pressed,#pushButton_download:pressed{
+background:rgba(0,0,0,0.2);
+padding:5px;
+}
+#pushButton_icon{background:rgba(255,255,255,0);border:none;}
+#lbIcon{
+border-radius:5px;
+background:rgba(255,255,255,0.9);
+border:1px solid #cccccc;
+
+}
+#lbIcon:hover{
+border-radius:5px;
+background:rgba(0,0,0,0.1);
+border:1px solid #ff6600;
+}
+#lbIcon:pressed{
+border-radius:5px;
+background:rgba(0,0,0,0.5);
+border:1px solid #ff6600;
+}
+#lbDdl{border-left:0px solid red;color:rgba(0,0,0,0.3);padding-right:5px;border-radius:0;}
+#lbRepate{border-left:1px solid rgba(0,0,0,0.1);color:rgba(0,0,0,0.3);padding:0 5px;border-radius:0;}
+#lbRemind{border-left:1px solid rgba(0,0,0,0.1);color:rgba(0,0,0,0.3);padding:0 5px;border-radius:0;}
+#lbCrontab{border-left:1px solid rgba(0,0,0,0.1);color:rgba(0,0,0,0.3);padding:0 5px;border-radius:0;}
+
+#pushButton_regbtn,#pushButton_longinbtn,#pushButton_longinbtn_xieyi,#pushButton_longinbtn_xieyi_2{
+border:none;
+background:rgba(0,0,0,0);
+color:#203ea7;
+text-align: right;
+text-decoration:underline;
+}
+#pushButton_regbtn:hover,#pushButton_longinbtn:hover,#pushButton_longinbtn_xieyi:hover,#pushButton_longinbtn_xieyi_2:hover{
+border:none;
+background:rgba(0,0,0,0);
+color:#ff9900;
+}
+#pushButton_regbtn:pressed,#pushButton_longinbtn:pressed,#pushButton_longinbtn_xieyi:pressed,#pushButton_longinbtn_xieyi_2:pressed{
+border:none;
+background:rgba(0,0,0,0);
+color:#ff3300;
+}
+#label_login{
+color:#818a96;
+text-align: left;
+}
+#btn_signup_close{
+border:none;
+background:rgba(0,0,0,0);
+}
+#pushButton_menu,
+#pushButton_set,
+#pushButton_exit,
+#pushButton_min{
+background:rgba(0,0,0,0);
+border:none;
+}
+#pushButton_menu:hover,
+#pushButton_set:hover,
+#pushButton_exit:hover,
+#pushButton_min:hover{
+background:rgba(0,0,0,0.1);
+border:none;
+}
+.QTextBrowser,.QtoolBox{
+background: transparent;background-color: transparent;border:none;
+}
+.QPushButton,.QToolButton,.QComboBox,.QDateTimeEdit,.QFontComboBox{
+border-style:none;
+color:#6F6F6F;
+border-radius:3px;
+padding:5px;
+background:rgba(255,255,255,1);
+}
+
+.QPushButton:hover,.QToolButton:hover,.QComboBox:hover,.QDateTimeEdit:hover,.QFontComboBox:hover{
+background:rgba(33,40,55,0.1);
+}
+
+.QPushButton:pressed,.QToolButton:pressed,.QComboBox:pressed,.QDateTimeEdit:pressed,.QFontComboBox:pressed{
+background:rgba(33,40,55,0.2);
+}
+
+QComboBox::drop-down,QDateEdit::drop-down,QTimeEdit::drop-down,QDateTimeEdit::drop-down,QFontComboBox::drop-down{
+subcontrol-origin:padding;
+subcontrol-position:top right;
+width:15px;
+border-left-width:0px;
+border-left-style:solid;
+border-top-right-radius:3px;
+border-bottom-right-radius:3px;
+border-left-color:#D4D0C8;
+}
+
+QComboBox::drop-down:on{
+top:1px;
+}
+QComboBox::down-arrow,QDateEdit[calendarPopup="true"]::down-arrow,QTimeEdit[calendarPopup="true"]::down-arrow,QDateTimeEdit[calendarPopup="true"]::down-arrow,QFontComboBox[calendarPopup="true"]::down-arrow{
+image:url(:/image/down.png);
+border:none;
+background:rgba(0,0,0,0);
+width:10px;
+height:10px;
+right:2px;
+outline:none;
+}
+.QLineEdit{
+padding:05px;
+border:none;
+}
+QMenuBar::item{
+color:#6F6F6F;
+background-color:#EEEEEE;
+margin:0px;
+padding:3px 10px;
+}
+
+QMenu,QMenuBar,QMenu:disabled,QMenuBar:disabled{
+color:#6F6F6F;
+background-color:#ffffff;
+border:1px solid #D4D0C8;
+margin:0px;
+padding:5px;
+}
+
+QMenu::item{
+padding:5px 20px;
+}
+
+QMenu::indicator{
+width:16px;
+height:16px;
+}
+
+QMenu::item:selected,QMenuBar::item:selected{
+color:#6F6F6F;
+border:0px solid #D4D0C8;
+background:#eeeeee;
+}
+
+QMenu::separator{
+height:1px;
+background:#D4D0C8;
+}
+
+#lbTitle{font-size:18px;color:#333333;background:rgba(0,0,0,0);padding:0;}
+#lbTitle:hover{color:#2196f3;}
+#lbTitle:pressed{color:blue;}
+#editMsg{background:#ffffff;padding:10px;}
+/*
+
+
+
+
+
+
+#editAddItem,#editAddGroup,#editTitle{
+border:none;
+border-radius:0;
+background:rgba(255,255,255,1);
+padding:2px;
+color:#818a96;
+}
+#editAddItem:hover,#editAddGroup:hover,#editTitle:hover{
+border:1px solid rgba(43,66,90,0.1);
+}
+#editAddItem:focus,#editAddGroup:focus，#editTitle:focus{
+border:1px solid #0d7cab;
+}
+
+#KToDoitem{
+background:#ffffff;
+border-bottom:1px solid #000000;
+}
+
+
+
+
+
+QPushButton,QComboBox,QDateTimeEdit{
+border:1px solid rgba(0,0,0,0.3);
+background:rgba(0,0,0,0.1);
+border:none;
+padding:2px 15px;
+}
+QPushButton:hover{
+background:rgba(0,0,0,0.3);
+}
+
+*/
+QScrollBar:horizontal{
+background:#666666;
+padding:0px;
+border-radius:4px;
+max-height:5px;
+}
+
+QScrollBar::handle:horizontal{
+background:#818a96;
+min-width:50px;
+border-radius:4px;
+}
+
+QScrollBar::handle:horizontal:hover{
+background:#dddddd;
+}
+
+QScrollBar::handle:horizontal:pressed{
+background:green;
+}
+
+QScrollBar::add-page:horizontal{
+background:none;
+}
+
+QScrollBar::sub-page:horizontal{
+background:none;
+}
+
+QScrollBar::add-line:horizontal{
+background:none;
+}
+
+QScrollBar::sub-line:horizontal{
+background:none;
+}
+
+QScrollBar:vertical{
+background:#dddddd;
+padding:0px;
+border-radius:4px;
+max-width:5px;
+}
+
+QScrollBar::handle:vertical{
+background:#999999;
+min-height:50px;
+border-radius:4px;
+}
+
+QScrollBar::handle:vertical:hover{
+background:#818a96;
+}
+
+QScrollBar::handle:vertical:pressed{
+background:#ff3300;
+}
+
+QScrollBar::add-page:vertical{
+background:none;
+}
+
+QScrollBar::sub-page:vertical{
+background:none;
+}
+
+QScrollBar::add-line:vertical{
+background:none;
+}
+
+QScrollBar::sub-line:vertical{
+background:none;
+}
+
+
+QTabWidget::pane {
+border:none;
+background-color: transparent;
+}
+
+/*
+QTabWidget QWidget#tab1 {
+background-color: transparent; /* 第一个子页透明 */
+}*/
+
+
+QTabBar::tab{
+border:none;
+color:#6F6F6F;
+margin:0px;
+background:none;
+}
+
+QTabBar::tab:selected,QTabBar::tab:hover{
+border-style:solid;
+border-color:#00BB9E;
+background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #EEEEEE,stop:1 #E5E5E5);
+}
+
+QTabBar::tab:top,QTabBar::tab:bottom{
+padding:3px 8px 3px 8px;
+}
+
+QTabBar::tab:left,QTabBar::tab:right{
+padding:8px 3px 8px 3px;
+}
+
+QTabBar::tab:top:selected,QTabBar::tab:top:hover{
+border-width:2px 0px 0px 0px;
+}
+
+QTabBar::tab:right:selected,QTabBar::tab:right:hover{
+border-width:0px 0px 0px 2px;
+}
+
+QTabBar::tab:bottom:selected,QTabBar::tab:bottom:hover{
+border-width:0px 0px 2px 0px;
+}
+
+QTabBar::tab:left:selected,QTabBar::tab:left:hover{
+border-width:0px 2px 0px 0px;
+}
+
+QTabBar::tab:first:top:selected,QTabBar::tab:first:top:hover,QTabBar::tab:first:bottom:selected,QTabBar::tab:first:bottom:hover{
+border-left-width:1px;
+border-left-color:#D4D0C8;
+}
+
+QTabBar::tab:first:left:selected,QTabBar::tab:first:left:hover,QTabBar::tab:first:right:selected,QTabBar::tab:first:right:hover{
+border-top-width:1px;
+border-top-color:#D4D0C8;
+}
+
+QTabBar::tab:last:top:selected,QTabBar::tab:last:top:hover,QTabBar::tab:last:bottom:selected,QTabBar::tab:last:bottom:hover{
+border-right-width:1px;
+border-right-color:#D4D0C8;
+}
+
+QTabBar::tab:last:left:selected,QTabBar::tab:last:left:hover,QTabBar::tab:last:right:selected,QTabBar::tab:last:right:hover{
+border-bottom-width:1px;
+border-bottom-color:#D4D0C8;
+}
+QToolBox::tab{
+background:none;
+border:none;
+}
+QToolBox::tab:selected{
+background:#ffffff;
+}
