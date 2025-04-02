@@ -1,0 +1,4 @@
+#ifndef CLOCKWIDGET_H
+#define CLOCKWIDGET_H
+
+#endif // CLOCKWIDGET_H

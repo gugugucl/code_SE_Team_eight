@@ -1,0 +1,14 @@
+debug/GBtnRroup.o
+debug/GNotifyMessage.o
+debug/GQstringDate.o
+debug/GToDo.o
+debug/GToDoItem.o
+debug/Main.o
+debug/page_setting.o
+debug/qrc_image.o
+debug/moc_GBtnRroup.o
+debug/moc_GNotifyMessage.o
+debug/moc_GQstringDate.o
+debug/moc_GToDo.o
+debug/moc_GToDoItem.o
+debug/moc_page_setting.o
